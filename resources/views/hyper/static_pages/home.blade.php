@@ -179,9 +179,9 @@
             <div class="card h-100 border shadow-sm" style="background: #fff !important; border-radius: 8px; overflow: hidden; transition: all 0.3s ease; border: 1px solid #eef2f7 !important;">
                 <div class="card-body p-0 d-flex">
                     <!-- 左侧缩略图 -->
-                    <div class="d-flex align-items-center justify-content-center" style="width: 140px; min-width: 140px; height: 110px; background: #f8f9fa; overflow: hidden;">
+                    <div class="d-flex align-items-center justify-content-center" style="width: 140px; min-width: 140px; min-height: 110px; align-self: stretch; background: #f8f9fa; overflow: hidden;">
                         @if(!empty($matches[1]))
-                            <img src="{{ $first_img }}" style="width: 100%; height: 100%; object-fit: cover;" alt="thumb">
+                            <img src="{{ $first_img }}" style="max-width: 100%; max-height: 100%; object-fit: contain; object-position: center;" alt="thumb">
                         @else
                             <i class="mdi mdi-image-filter-none" style="font-size: 30px; color: #dee2e6;"></i>
                         @endif
