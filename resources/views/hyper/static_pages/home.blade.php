@@ -179,11 +179,13 @@
             <div class="card h-100 border shadow-sm" style="background: #fff !important; border-radius: 8px; overflow: hidden; transition: all 0.3s ease; border: 1px solid #eef2f7 !important;">
                 <div class="card-body p-0 d-flex">
                     <!-- 左侧缩略图 -->
-                    <div class="d-flex align-items-center justify-content-center" style="width: 140px; min-width: 140px; min-height: 110px; align-self: stretch; background: #f8f9fa; overflow: hidden;">
+                    <div class="custom-article-card-thumb">
                         @if(!empty($matches[1]))
-                            <img src="{{ $first_img }}" style="max-width: 100%; max-height: 100%; object-fit: contain; object-position: center;" alt="thumb">
+                            <img src="{{ $first_img }}" alt="{{ $article['title'] }}">
                         @else
-                            <i class="mdi mdi-image-filter-none" style="font-size: 30px; color: #dee2e6;"></i>
+                            <div class="custom-article-card-thumb-placeholder">
+                                <i class="mdi mdi-image-filter-none"></i>
+                            </div>
                         @endif
                     </div>
                     
@@ -214,6 +216,35 @@
 </div>
 
 <style>
+    .custom-article-card-thumb {
+        width: 140px;
+        min-width: 140px;
+        min-height: 110px;
+        align-self: stretch;
+        flex-shrink: 0;
+        overflow: hidden;
+        background: #f8f9fa;
+        position: relative;
+    }
+    .custom-article-card-thumb img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+    .custom-article-card-thumb-placeholder {
+        width: 100%;
+        height: 100%;
+        min-height: 110px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #dee2e6;
+        font-size: 30px;
+    }
     /* 强制锁定悬停样式，防止变黑 */
     .custom-article-card:hover .card {
         transform: translateY(-3px) !important;
